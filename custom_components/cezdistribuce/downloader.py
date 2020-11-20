@@ -23,7 +23,7 @@ def parseDate(date_time_str):
 
 def isHdo(jsonCalendar):
     now = datetime.datetime.now()
-    if(now.weekday()>4):
+    if(now.weekday()<5):
         days = jsonCalendar[0]
     else:
         days = jsonCalendar[1]
