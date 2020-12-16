@@ -39,7 +39,6 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     add_entities(ents)
 
 class CezDistribuce(BinarySensorEntity):
-
     def __init__(self, name, region, code):
         """Initialize the sensor."""
         self._name = name
@@ -58,7 +57,7 @@ class CezDistribuce(BinarySensorEntity):
 
     @property
     def is_on(self):
-        return downloader.isHdo(self.responseJson)
+        return downloader.isHdo(self.responseJson["data"])
 
     @property
     def device_state_attributes(self):

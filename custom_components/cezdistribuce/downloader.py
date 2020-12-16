@@ -1,10 +1,10 @@
 import requests
 import datetime
 
-BASE_URL = "https://www.cezdistribuce.cz/edee/content/sysutf/ds3/data/hdo_data.json"
+BASE_URL = "https://www.cezdistribuce.cz/distHdo/adam/containers/"
 
 def getRequestUrl(region, code):
-    return BASE_URL + "?&code=" + code + "&"+ region +"=1"
+    return BASE_URL + region + "?&code=" + code.upper()
 
 def timeInRange(start, end, x):
     if start <= end:
@@ -31,7 +31,7 @@ def isHdo(jsonCalendar):
     actualTime = now.time()
     hdo = False
     for i in range(1,11):
-        startTime = parseTime(days["casZap" + str(i)])
-        endTime = parseTime(days["casVyp" + str(i)])
+        startTime = parseTime(days["CAS_ZAP_" + str(i)])
+        endTime = parseTime(days["CAS_VYP_" + str(i)])
         hdo = hdo or timeInRange(startTime, endTime, actualTime)
     return hdo
