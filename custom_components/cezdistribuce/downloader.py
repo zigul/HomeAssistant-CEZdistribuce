@@ -3,7 +3,14 @@ import datetime
 
 BASE_URL = "https://www.cezdistribuce.cz/distHdo/adam/containers/"
 
+def getCorrectRegionName(region):
+  region = region.lower()
+  for x in ["zapad", "sever", "stred", "vychod", "morava"]:
+    if x in region:
+      return x
+
 def getRequestUrl(region, code):
+    region = getCorrectRegionName(region)
     return BASE_URL + region + "?&code=" + code.upper()
 
 def timeInRange(start, end, x):
