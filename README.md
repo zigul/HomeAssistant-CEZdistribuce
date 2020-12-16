@@ -29,10 +29,17 @@ Add the following to your `configuration.yaml` file:
 binary_sensor:
   - platform: cezdistribuce
     name: nizky tarif
-    region: regionStred
+    region: stred
     code: A1B5DP6
 ```
 set your **region** and **code**
+
+#### supported regions:
+* zapad
+* sever
+* stred
+* vychod
+* morava
 
 ### Step 3: Restart HA
 For the newly added integration to be loaded, HA needs to be restarted.
