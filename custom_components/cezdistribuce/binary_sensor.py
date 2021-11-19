@@ -29,14 +29,16 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     }
 )
 
+
 def setup_platform(hass, config, add_entities, discovery_info=None):
     name = config.get(CONF_NAME)
     region = config.get(CONF_REGION)
     code = config.get(CONF_CODE)
 
     ents = []
-    ents.append(CezDistribuce(name,region,code))
+    ents.append(CezDistribuce(name, region, code))
     add_entities(ents)
+
 
 class CezDistribuce(BinarySensorEntity):
     def __init__(self, name, region, code):
@@ -62,7 +64,7 @@ class CezDistribuce(BinarySensorEntity):
     @property
     def device_state_attributes(self):
         attributes = {}
-        attributes['response_json'] = self.responseJson
+        attributes["response_json"] = self.responseJson
         return attributes
 
     @property
@@ -75,14 +77,14 @@ class CezDistribuce(BinarySensorEntity):
 
     @property
     def device_class(self):
-        return ''
+        return ""
 
     @Throttle(MIN_TIME_BETWEEN_SCANS)
     def update(self):
         # REGION = "regionStred"
         # CODE = "A1B5DP6"
 
-        response = requests.get(downloader.getRequestUrl(self.region,self.code))
+        response = requests.get(downloader.getRequestUrl(self.region, self.code))
         if response.status_code == 200:
             self.responseJson = response.json()
             self.last_update_success = True
