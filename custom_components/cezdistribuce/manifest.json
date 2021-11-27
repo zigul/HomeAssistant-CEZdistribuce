@@ -1,7 +1,7 @@
 {
     "domain": "cezdistribuce",
     "name": "CEZ Distribuce",
-    "version": "0.4.1",
+    "version": "0.4.2",
     "documentation": "https://github.com/zigul/HomeAssistant-CEZdistribuce",
     "issue_tracker": "https://github.com/zigul/HomeAssistant-CEZdistribuce/issues",
     "dependencies": [],
