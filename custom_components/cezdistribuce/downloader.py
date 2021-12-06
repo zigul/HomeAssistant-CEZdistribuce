@@ -39,18 +39,14 @@ def parseTime(date_time_str):
         return datetime.datetime.strptime(date_time_str, "%H:%M").time()
 
 
-def isHdo(jsonCalendar, daytime=datetime.datetime.utcnow()):
+def isHdo(jsonCalendar, daytime=datetime.datetime.now(tz=CEZ_TIMEZONE)):
     """
     Find out if the HDO is enabled for the current timestamp
 
     :param jsonCalendar: JSON with calendar schedule from CEZ
-    :param daytime: relevant time in UTC to check if HDO is on or not
+    :param daytime: relevant time in "Europe/Prague" timezone to check if HDO is on or not
     :return: bool
     """
-    # convert daytime to timezone CEZ is using on website
-    daytime.replace(tzinfo=ZoneInfo("UTC"))
-    daytime = daytime.astimezone(CEZ_TIMEZONE)
-    daytime.replace(tzinfo=None)
 
     # select Mon-Fri schedule or Sat-Sun schedule according to current date
     if daytime.weekday() < 5:
