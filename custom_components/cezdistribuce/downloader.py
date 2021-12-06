@@ -39,10 +39,6 @@ def parseTime(date_time_str):
         return datetime.datetime.strptime(date_time_str, "%H:%M").time()
 
 
-def parseDate(date_time_str):
-    return datetime.datetime.strptime(date_time_str, "%Y-%m-%d %H:%M:%S.%f")
-
-
 def isHdo(jsonCalendar, daytime=datetime.datetime.utcnow()):
     """
     Find out if the HDO is enabled for the current timestamp
