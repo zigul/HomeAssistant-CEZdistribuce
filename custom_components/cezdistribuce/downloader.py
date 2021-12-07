@@ -39,7 +39,7 @@ def parseTime(date_time_str):
         return datetime.datetime.strptime(date_time_str, "%H:%M").time()
 
 
-def isHdo(jsonCalendar, daytime=datetime.datetime.now(tz=CEZ_TIMEZONE)):
+def isHdo(jsonCalendar):
     """
     Find out if the HDO is enabled for the current timestamp
 
@@ -47,7 +47,7 @@ def isHdo(jsonCalendar, daytime=datetime.datetime.now(tz=CEZ_TIMEZONE)):
     :param daytime: relevant time in "Europe/Prague" timezone to check if HDO is on or not
     :return: bool
     """
-
+    daytime = datetime.datetime.now(tz=CEZ_TIMEZONE)
     # select Mon-Fri schedule or Sat-Sun schedule according to current date
     if daytime.weekday() < 5:
         dayCalendar = jsonCalendar[0]
