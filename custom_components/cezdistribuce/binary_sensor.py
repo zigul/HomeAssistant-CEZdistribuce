@@ -62,7 +62,7 @@ class CezDistribuce(BinarySensorEntity):
         return downloader.isHdo(self.responseJson["data"])
 
     @property
-    def device_state_attributes(self):
+    def extra_state_attributes(self):
         attributes = {}
         attributes["response_json"] = self.responseJson
         return attributes
@@ -78,6 +78,10 @@ class CezDistribuce(BinarySensorEntity):
     @property
     def device_class(self):
         return ""
+
+    @property
+    def unique_id(self):
+        return "cezdistribuce_" + self._name
 
     @Throttle(MIN_TIME_BETWEEN_SCANS)
     def update(self):
