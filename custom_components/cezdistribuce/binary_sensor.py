@@ -81,7 +81,7 @@ class CezDistribuce(BinarySensorEntity):
 
     @property
     def unique_id(self):
-        return "cezdistribuce" + self._name
+        return "cezdistribuce_" + self._name
 
     @Throttle(MIN_TIME_BETWEEN_SCANS)
     def update(self):
