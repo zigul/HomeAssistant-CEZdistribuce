@@ -47,6 +47,7 @@ class CezDistribuce(BinarySensorEntity):
         self.region = region
         self.code = code
         self.responseJson = "[]"
+        self.validity = ""
         self.update()
 
     @property
@@ -59,12 +60,14 @@ class CezDistribuce(BinarySensorEntity):
 
     @property
     def is_on(self):
+        self.validity = downloader.validity(self.responseJson["data"])
         return downloader.isHdo(self.responseJson["data"])
 
     @property
     def extra_state_attributes(self):
         attributes = {}
         attributes["response_json"] = self.responseJson
+        attributes["schedule_validity"] = self.validity
         return attributes
 
     @property
@@ -91,6 +94,7 @@ class CezDistribuce(BinarySensorEntity):
         response = requests.get(downloader.getRequestUrl(self.region, self.code))
         if response.status_code == 200:
             self.responseJson = response.json()
+            self.validity = downloader.validity(self.responseJson["data"])
             self.last_update_success = True
         else:
             self.last_update_success = False
