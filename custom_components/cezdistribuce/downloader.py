@@ -9,7 +9,7 @@ except ImportError:
     from backports.zoneinfo import ZoneInfo
 
 
-BASE_URL = "https://www.cezdistribuce.cz/distHdo/adam/containers/"
+BASE_URL = "https://www.cezdistribuce.cz/webpublic/distHdo/adam/containers/"
 CEZ_TIMEZONE = ZoneInfo("Europe/Prague")
 
 
