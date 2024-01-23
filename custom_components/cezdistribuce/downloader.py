@@ -50,9 +50,9 @@ def isHdo(jsonCalendar):
     daytime = datetime.datetime.now(tz=CEZ_TIMEZONE)
     # select Mon-Fri schedule or Sat-Sun schedule according to current date
     if daytime.weekday() < 5:
-        dayCalendar = jsonCalendar[0]
+        dayCalendar = next((x for x in jsonCalendar if x["PLATNOST"] == "Po - Pá"), None)
     else:
-        dayCalendar = jsonCalendar[1]
+        dayCalendar = next((x for x in jsonCalendar if x["PLATNOST"] == "So - Ne"), None)
 
     checkedTime = daytime.time()
     hdo = False
