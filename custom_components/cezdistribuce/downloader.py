@@ -1,4 +1,5 @@
-import requests
+"""helper download functions"""
+
 import datetime
 
 try:
@@ -14,6 +15,7 @@ CEZ_TIMEZONE = ZoneInfo("Europe/Prague")
 
 
 def getCorrectRegionName(region):
+    "validate region"
     region = region.lower()
     for x in ["zapad", "sever", "stred", "vychod", "morava"]:
         if x in region:
@@ -21,11 +23,13 @@ def getCorrectRegionName(region):
 
 
 def getRequestUrl(region, code):
+    "create request URI"
     region = getCorrectRegionName(region)
     return BASE_URL + region + "?&code=" + code.upper()
 
 
 def timeInRange(start, end, x):
+    "is time in range"
     if start <= end:
         return start <= x <= end
     else:
@@ -33,6 +37,7 @@ def timeInRange(start, end, x):
 
 
 def parseTime(date_time_str):
+    "parse time from source data"
     if not date_time_str:
         return datetime.time(0, 0)
     else:
@@ -50,9 +55,13 @@ def isHdo(jsonCalendar):
     daytime = datetime.datetime.now(tz=CEZ_TIMEZONE)
     # select Mon-Fri schedule or Sat-Sun schedule according to current date
     if daytime.weekday() < 5:
-        dayCalendar = next((x for x in jsonCalendar if x["PLATNOST"] == "Po - Pá"), None)
+        dayCalendar = next(
+            (x for x in jsonCalendar if x["PLATNOST"] == "Po - Pá" or x["PLATNOST"] == "Po - Ne"), None
+        )
     else:
-        dayCalendar = next((x for x in jsonCalendar if x["PLATNOST"] == "So - Ne"), None)
+        dayCalendar = next(
+            (x for x in jsonCalendar if x["PLATNOST"] == "So - Ne" or x["PLATNOST"] == "Po - Ne"), None
+        )
 
     checkedTime = daytime.time()
     hdo = False
