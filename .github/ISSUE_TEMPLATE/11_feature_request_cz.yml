@@ -1,0 +1,25 @@
+name: "Požadavek na funkce"
+description: Navrhněte nápad na tento projekt
+labels: ["enhancement"]
+assignees:
+  - pokornyIt
+body:
+  - type: checkboxes
+    attributes:
+      label: Zkontrolujte existující požadavky
+      description: Zkontrolujte otevřené problémy, abyste snížili pravděpodobnost vytváření duplikátů; pokud již požadavek existuje, přidejte u něj „+1“ (👍).
+      options:
+      - label: Completed
+        required: true
+  - type: textarea
+    attributes:
+      label: Popište řešení, které chcete
+      description: Jasný a stručný popis toho, co chcete, aby se stalo. Přidejte všechny uvažované nevýhody.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Popište alternativy, které jste zvažovali
+      description: Jasný a stručný popis všech alternativních řešení nebo funkcí, které jste zvažovali.
+    validations:
+      required: false      

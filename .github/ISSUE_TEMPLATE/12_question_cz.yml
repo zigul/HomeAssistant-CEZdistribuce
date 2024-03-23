@@ -1,0 +1,26 @@
+name: "Otázka nebo žádost o pomoc"
+description: Pokud potřebujete pomoc nebo máte dotaz k produktu
+labels: ["question","help wanted"]
+assignees:
+  - pokornyIt
+body:
+  - type: checkboxes
+    attributes:
+      label: Zkontrolujte existující problémy
+      description: Zkontrolujte otevřené problémy, abyste snížili pravděpodobnost vytváření duplikátů; pokud již problém existuje, přidejte u něj „+1“ (👍).
+      options:
+      - label: Completed
+        required: true
+  - type: input
+    attributes:
+      label: Verze
+      description: Jakou verzi softwaru používáte
+      placeholder: 0.4.9
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Napište svůj dotaz nebo s čím potřebujete pomoci
+      description: Jasný a stručný popis vaší otázky nebo situace. Popište také podrobnosti vašeho nastavení
+    validations:
+      required: true
