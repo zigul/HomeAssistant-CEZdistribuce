@@ -1,0 +1,27 @@
+name: "Hlášení o chybě"
+description: Vytvořte hlášení o problému
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees:
+  - pokornyIt
+body:
+  - type: checkboxes
+    attributes:
+      label: Zkontrolujte existující problémy
+      description: Zkontrolujte otevřené problémy, abyste snížili pravděpodobnost vytváření duplikátů; pokud již problém existuje, přidejte u něj „+1“ (👍).
+      options:
+      - label: Completed
+        required: true
+  - type: input
+    attributes:
+      label: Verze
+      description: Jakou verzi softwaru používáte
+      placeholder: 0.4.9
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Popište chybu / popiště kroky k reprodukci chyby
+      description: Jasný a stručný popis toho, kde je chyba, jak se projevuje, jaké je očekávané chování
+    validations:
+      required: true
