@@ -29,7 +29,7 @@ Add the following to your `configuration.yaml` file:
 # Example configuration.yaml entry for showing current HDO state
 binary_sensor:
   - platform: cezdistribuce
-    name: nizky tarif
+    name: stred_a1b5dp6
     region: stred
     code: A1B5DP6
 ```
