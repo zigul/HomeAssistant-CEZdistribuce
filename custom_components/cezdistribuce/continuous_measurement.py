@@ -20,6 +20,9 @@ class ContinuousMeasurement:  # pylint: disable=R0903
     @staticmethod
     def getCode(code: str) -> dict:
         "return specific dict for code or empty dict if code not exists"
+        data = ContinuousMeasurement.CODES.get(code)
+        if len(data) == 1:
+            data = data[0]
         to_response = {"data": ContinuousMeasurement.CODES.get(code)}
         _LOGGER.debug("select data for code %s: %s", code, to_response)
         return to_response
