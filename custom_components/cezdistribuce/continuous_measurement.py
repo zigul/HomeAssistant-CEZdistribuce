@@ -169,7 +169,7 @@ class ContinuousMeasurement:  # pylint: disable=R0903
         "PLATNOST": "Po - Ne",
         "CAS_ZAP_1": "2:00",
         "CAS_VYP_1": "6:00",
-        "CAS_ZAP_2": "22:00",
+        "CAS_ZAP_2": "20:00",
         "CAS_VYP_2": "24:00",
         "CAS_ZAP_3": None,
         "CAS_VYP_3": None,
