@@ -1,0 +1,12 @@
+# Example Home Assistant configuration for CEZ Distribuce integration
+binary_sensor:
+  - platform: cezdistribuce
+    name: stred_a1b5dp6
+    region: stred
+    code: A1B5DP6
+
+sensor:
+  - platform: cezdistribuce
+    name: stred_a1b5dp6_next
+    region: stred
+    code: A1B5DP6

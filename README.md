@@ -7,8 +7,9 @@ Now the integration supports the continuous measurement code defined by the docu
 
 The **region** and the **code** have to be defined in configuration.yaml.
 
-This sensor shows
-- current state of HDO
+This integration provides
+- current state of HDO as a binary sensor
+- next five upcoming HDO enable windows as a regular sensor
 
 ## Installation
 
@@ -34,6 +35,16 @@ binary_sensor:
     code: A1B5DP6
 ```
 set your **region** and **code**
+
+To expose the upcoming enable windows, add the paired sensor entity:
+
+```yaml
+sensor:
+  - platform: cezdistribuce
+    name: stred_a1b5dp6_next
+    region: stred
+    code: A1B5DP6
+```
 
 #### supported regions:
 * zapad
