@@ -190,6 +190,11 @@ def isHdo(jsonCalendar):
     # iterate over scheduled times in calendar schedule
     for i in range(1, 11):
         startTime = parseTime(dayCalendar["CAS_ZAP_" + str(i)])
-        endTime = parseTime(dayCalendar["CAS_VYP_" + str(i)])
+        endTimeRaw = dayCalendar["CAS_VYP_" + str(i)]
+        # If the end time is 23:59, interpret it as 00:00 the following day.
+        if endTimeRaw == "23:59":
+            endTime = datetime.time(0, 0)
+        else:
+            endTime = parseTime(endTimeRaw)
         hdo = hdo or timeInRange(start=startTime, end=endTime, x=checkedTime)
     return hdo
