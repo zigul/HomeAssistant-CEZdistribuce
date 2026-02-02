@@ -2,6 +2,12 @@
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs)
 
+> [!CAUTION]
+> This project was terminated because it used an older API from ČEZ Distribution.  
+> The new project is [ČEZ HDO](https://github.com/Cmajda/ha_cez_distribuce).  
+> Many thanks to all developers, supporters and users. We hope that the new project will be useful for you as well.
+
+
 This sensor is downloading data from https://www.cezdistribuce.cz/cs/pro-zakazniky/spinani-hdo.html. The integration needs the **region** and the **code**. One can get this information from the contract with CEZ CZ or https://www.cezdistribuce.cz/cs/pro-zakazniky/spinani-hdo.html.
 Now the integration supports the continuous measurement code defined by the document https://www.cezdistribuce.cz/file/edee/distribuce/cezdistribuce_pasmaplatnostintavt_prubehove_mereni.pdf (valid on 2024-03-19).
 
